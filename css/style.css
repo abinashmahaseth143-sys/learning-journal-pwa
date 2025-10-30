@@ -101,3 +101,53 @@ footer {
     width: 40%;
   }
 }
+#live-date {
+  margin-top: 1rem;
+  font-style: italic;
+}
+#theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+#theme-toggle:hover {
+  background: #0056b3;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+.dark a {
+  color: #bb86fc;
+}
+.dark .navbar {
+  background: #333;
+}
+.dark .project-card, .dark article {
+  background: #2d2d2d;
+}
+
+/* Collapsible effect */
+.journal article.collapsed p { 
+  display: none; 
+}
+.journal article h2::after { 
+  content: ' (Click to collapse)'; 
+  font-size: 0.8rem; 
+  color: #666; 
+}
+.journal article.collapsed h2::after { 
+  content: ' (Click to expand)'; 
+  color: #999; 
+}
+
+.add-entry { margin: 2rem 0; }
+#journal-text { width: 100%; padding: 0.5rem; }
+#journal-form button { padding: 0.5rem; background: #28a745; color: #fff; border: none; }

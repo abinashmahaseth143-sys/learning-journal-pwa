@@ -7,38 +7,51 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <a href="index.html" class="logo">My Journal</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="journal.html" class="active">Journal</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="about.html">About</a></li>
-      </ul>
-    </nav>
-  </header>
+  <div id="nav-placeholder"></div>
 
   <main>
+    <section class="add-entry">
+  <h2>Add New Journal Entry</h2>
+  <form id="journal-form">
+    <textarea id="journal-text" placeholder="Write at least 10 words..." rows="5" required></textarea>
+    <p id="word-count">Words: 0</p>
+    <p id="error-message" style="color: red; display: none;">Must be at least 10 words!</p>
+    <button type="submit">Submit</button>
+  </form>
+</section>
     <section class="journal">
       <h1>Weekly Journal</h1>
 
       <article>
         <h2>Week 2 – Frontend Fundamentals</h2>
         <p><strong>1. How did you approach mobile-first design?</strong><br>
-        I started by designing for small screens first, using simple layouts that scale up with media queries.</p>
+        When building the Learning Journal website I went with a mobile-first approach, laying the foundation with HTML and CSS, and then carefully rearranging the layout as I worked down to the smallest screen sizes, so that the content is perfectly clear and well-organised. </p>
 
         <p><strong>2. What was the most useful HTML or CSS concept you applied this week?</strong><br>
-        Flexbox was very useful for aligning elements and building a responsive navigation bar.</p>
+        Well-known CSS media queries allowed me to really bring the site to life for larger screens like tablets and desktops. Just this week, I've started to delve into the world of Flexbox and how it can be used to sort out my navigation bar and content sections in seconds. And, by using Flexbox, I’ve found that creating a clean, flexible design is a whole lot simpler than using complicated positioning and floating techniques.</p>
 
         <p><strong>3. What part of HTML or CSS did you find most challenging?</strong><br>
-        I found responsive breakpoints a bit tricky to adjust for different screen sizes.</p>
+        The hardest part for me was getting to grips with CSS media queries and how to easily change positioning between columns or rows based on width of the screens. Initially, it was overwhelming working with so many breakpoints and testing the design on multiple screens. But since I was testing and previewing my website with the Live Server extension in VS Code, I had a better dressed on responsive design now.
+
+Overall, the week was fantastic at reinforcing my knowledge in how to structure my HTML, styling with CSS and the need to design first on mobile. I'm now feeling more confident creating the responsive site that is phenomenal on all devices.</p>
       </article>
+<article>
+  <h2>Week 3 – JavaScript & DOM Manipulation</h2>
+  <p><strong>1. Which DOM selection methods did you use, and why?</strong><br>
+  getElementById for placeholders (unique/fast). querySelector for classes (flexible). querySelectorAll for loops (multiple elements).</p>
+  <p><strong>2. What was the most challenging part about linking JavaScript with your HTML?</strong><br>
+  Timing (use DOMContentLoaded). Debugging null errors with Console.</p>
+  <p><strong>3. How did you test and debug your JavaScript code?</strong><br>
+  Live Server reloads, Console logs, DevTools breakpoints, mobile testing.</p>
+</article>
+
+
     </section>
   </main>
 
   <footer>
-    <p>© 2025 Your Name</p>
+    <p>Abhinas Mahaseth</p>
   </footer>
+  <script src="js/script.js"></script>
 </body>
 </html>
