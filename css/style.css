@@ -151,3 +151,20 @@ footer {
 .add-entry { margin: 2rem 0; }
 #journal-text { width: 100%; padding: 0.5rem; }
 #journal-form button { padding: 0.5rem; background: #28a745; color: #fff; border: none; }
+
+/* Default Theme (Light Mode) - Light Blue Background */
+body {
+  background-color: #add8e6;  /* Light blue */
+  color: #333;               /* Dark text for readability */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #1e1e1e;  /* Dark gray/black */
+  color: #f0f0f0;             /* Light text */
+}

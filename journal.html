@@ -13,6 +13,7 @@
     <section class="add-entry">
   <h2>Add New Journal Entry</h2>
   <form id="journal-form">
+    <button id="save-entry">Save Journal Entry</button>
     <textarea id="journal-text" placeholder="Write at least 10 words..." rows="5" required></textarea>
     <p id="word-count">Words: 0</p>
     <p id="error-message" style="color: red; display: none;">Must be at least 10 words!</p>
@@ -20,6 +21,7 @@
   </form>
 </section>
     <section class="journal">
+      
       <h1>Weekly Journal</h1>
 
       <article>
@@ -38,11 +40,25 @@ Overall, the week was fantastic at reinforcing my knowledge in how to structure 
 <article>
   <h2>Week 3 – JavaScript & DOM Manipulation</h2>
   <p><strong>1. Which DOM selection methods did you use, and why?</strong><br>
-  getElementById for placeholders (unique/fast). querySelector for classes (flexible). querySelectorAll for loops (multiple elements).</p>
+  I chose to use querySelector() for class-based selections like.hero, as it is more flexible, while unique elements like the nav placeholder used getElementById() because of speed.
+I also chose some journal entries for collapsible behavior via querySelectorAll().</p>
   <p><strong>2. What was the most challenging part about linking JavaScript with your HTML?</strong><br>
-  Timing (use DOMContentLoaded). Debugging null errors with Console.</p>
+  The most difficult part about lin<king your javascript with html was to ensure JavaScript ran after the DOM loaded, to avoid null issues.Was able to resolve an issue using DOMContentLoaded and debugging ID/class mismatches in DevTools.</p>
   <p><strong>3. How did you test and debug your JavaScript code?</strong><br>
-  Live Server reloads, Console logs, DevTools breakpoints, mobile testing.</p>
+  Using DOMContentLoaded and debugging ID/Class mismatches in DevTools, I fixed the issue. I tried using Chrome Console for error messages and console.log() and Live Server for instant reloads. I looked into DOM changes in Elements tab and used DevTools breakpoints for debugging.</p>
+</article>
+<article>
+  <h2>Week 4 Introduction to API</h2>
+  <p><strong>1. Which APIs did you use, and why?</strong><br> 
+    I utilized the Local Storage API to keep track of theme preferences, the Notification API to notify users when they save a journal entry, and the Facebook API to share my page. I picked these tools because they really enhance the user experience, making my website feel more interactive and personal.</p>
+<p><strong>2. How did you integrate each API with the DOM?</strong><br> 
+    I used JavaScript event listeners (addEventListener) to handle button clicks and used DOM methods like getElementById to select elements. The APIs were called in response to these user actions, dynamically changing the page content and behavior. </p>
+    <p><strong>3. What challenges did you face?</strong><br>
+   The toughest challenge I encountered was figuring out how to store data so it would stick around and making sure it loaded properly after a refresh. Testing the Notification API also required allowing permissions in the browser.</p>
+    <p><strong>4. How do these APIs improve your PWA? </strong><br>
+   They make my site more interactive, user-friendly, and personalized. The Storage API remembers user choices, the Notification API improves feedback, and the Third-Party API connects my site to social media..</p>
+</article>
+
 </article>
 
 
@@ -53,5 +69,8 @@ Overall, the week was fantastic at reinforcing my knowledge in how to structure 
     <p>Abhinas Mahaseth</p>
   </footer>
   <script src="js/script.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/browser.js"></script>
+<script src="js/thirdparty.js"></script>
 </body>
 </html>

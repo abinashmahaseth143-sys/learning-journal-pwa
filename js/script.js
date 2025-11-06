@@ -74,8 +74,12 @@ if (location.pathname.includes('journal.html')) {
   });
 }
 
-  const placeholder = document.getElementById('nav-placeholder');
+const placeholder = document.getElementById('nav-placeholder');
   if (placeholder) {
     placeholder.innerHTML = navHTML;
   }
 });
+
+
+
+
