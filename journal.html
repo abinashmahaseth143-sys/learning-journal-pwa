@@ -10,67 +10,173 @@
   <div id="nav-placeholder"></div>
 
   <main>
+    <!-- Existing form -->
     <section class="add-entry">
-  <h2>Add New Journal Entry</h2>
-  <form id="journal-form">
-    <button id="save-entry">Save Journal Entry</button>
-    <textarea id="journal-text" placeholder="Write at least 10 words..." rows="5" required></textarea>
-    <p id="word-count">Words: 0</p>
-    <p id="error-message" style="color: red; display: none;">Must be at least 10 words!</p>
-    <button type="submit">Submit</button>
-  </form>
-</section>
+      <h2>Add New Journal Entry</h2>
+      <form id="journal-form">
+        <button id="save-entry">Save Journal Entry</button>
+        <textarea id="journal-text" placeholder="Write at least 10 words..." rows="5" required></textarea>
+        <p id="word-count">Words: 0</p>
+        <p id="error-message" style="color: red; display: none;">Must be at least 10 words!</p>
+        <button type="submit">Submit</button>
+      </form>
+      <p style="margin-top:10px; font-size:0.9em; color:#555;">
+        <strong>Note:</strong> Real entries are added by running <code>backend/save_entry.py</code> locally and pushing to GitHub.
+      </p>
+    </section>
+
+    <!-- NEW: Dynamic JSON Entries Section -->
     <section class="journal">
-      
       <h1>Weekly Journal</h1>
 
+      <!-- Counter + Extra Feature Buttons -->
+      <div style="margin:20px 0; padding:15px; background:#f9f9f9; border-radius:8px; text-align:center;">
+        <strong id="entry-counter">Loading reflections...</strong>   |  
+        <button onclick="location.reload()">Refresh List</button>  
+        <button id="download-json">Download reflections.json</button>
+      </div>
+
+      <!-- Dynamic entries will appear here -->
+      <div id="json-entries"></div>
+
+      <hr style="margin:40px 0;">
+
+      <!-- Your existing hard-coded weeks -->
       <article>
         <h2>Week 2 – Frontend Fundamentals</h2>
         <p><strong>1. How did you approach mobile-first design?</strong><br>
         When building the Learning Journal website I went with a mobile-first approach, laying the foundation with HTML and CSS, and then carefully rearranging the layout as I worked down to the smallest screen sizes, so that the content is perfectly clear and well-organised. </p>
 
         <p><strong>2. What was the most useful HTML or CSS concept you applied this week?</strong><br>
-        Well-known CSS media queries allowed me to really bring the site to life for larger screens like tablets and desktops. Just this week, I've started to delve into the world of Flexbox and how it can be used to sort out my navigation bar and content sections in seconds. And, by using Flexbox, I’ve found that creating a clean, flexible design is a whole lot simpler than using complicated positioning and floating techniques.</p>
+        Well-known CSS media queries allowed me to really bring the site to life for larger screens like tablets and desktops. Just this week, I've started to delve into the world of Flexbox and how it can be used to sort out my navigation bar and content sections in seconds. And, by using Flexbox, I've found that creating a clean, flexible design is a whole lot simpler than using complicated positioning and floating techniques.</p>
 
         <p><strong>3. What part of HTML or CSS did you find most challenging?</strong><br>
-        The hardest part for me was getting to grips with CSS media queries and how to easily change positioning between columns or rows based on width of the screens. Initially, it was overwhelming working with so many breakpoints and testing the design on multiple screens. But since I was testing and previewing my website with the Live Server extension in VS Code, I had a better dressed on responsive design now.
-
-Overall, the week was fantastic at reinforcing my knowledge in how to structure my HTML, styling with CSS and the need to design first on mobile. I'm now feeling more confident creating the responsive site that is phenomenal on all devices.</p>
+        The hardest part for me was getting to grips with CSS media queries and how to easily change positioning between columns or rows based on width of the screens. Initially, it was overwhelming working with so many breakpoints and testing the design on multiple screens. But since I was testing and previewing my website with the Live Server extension in VS Code, I had a better dressed on responsive design now.<br><br>
+        Overall, the week was fantastic at reinforcing my knowledge in how to structure my HTML, styling with CSS and the need to design first on mobile. I'm now feeling more confident creating the responsive site that is phenomenal on all devices.</p>
       </article>
-<article>
-  <h2>Week 3 – JavaScript & DOM Manipulation</h2>
-  <p><strong>1. Which DOM selection methods did you use, and why?</strong><br>
-  I chose to use querySelector() for class-based selections like.hero, as it is more flexible, while unique elements like the nav placeholder used getElementById() because of speed.
-I also chose some journal entries for collapsible behavior via querySelectorAll().</p>
-  <p><strong>2. What was the most challenging part about linking JavaScript with your HTML?</strong><br>
-  The most difficult part about lin<king your javascript with html was to ensure JavaScript ran after the DOM loaded, to avoid null issues.Was able to resolve an issue using DOMContentLoaded and debugging ID/class mismatches in DevTools.</p>
-  <p><strong>3. How did you test and debug your JavaScript code?</strong><br>
-  Using DOMContentLoaded and debugging ID/Class mismatches in DevTools, I fixed the issue. I tried using Chrome Console for error messages and console.log() and Live Server for instant reloads. I looked into DOM changes in Elements tab and used DevTools breakpoints for debugging.</p>
-</article>
-<article>
-  <h2>Week 4 Introduction to API</h2>
-  <p><strong>1. Which APIs did you use, and why?</strong><br> 
-    I utilized the Local Storage API to keep track of theme preferences, the Notification API to notify users when they save a journal entry, and the Facebook API to share my page. I picked these tools because they really enhance the user experience, making my website feel more interactive and personal.</p>
-<p><strong>2. How did you integrate each API with the DOM?</strong><br> 
-    I used JavaScript event listeners (addEventListener) to handle button clicks and used DOM methods like getElementById to select elements. The APIs were called in response to these user actions, dynamically changing the page content and behavior. </p>
-    <p><strong>3. What challenges did you face?</strong><br>
-   The toughest challenge I encountered was figuring out how to store data so it would stick around and making sure it loaded properly after a refresh. Testing the Notification API also required allowing permissions in the browser.</p>
-    <p><strong>4. How do these APIs improve your PWA? </strong><br>
-   They make my site more interactive, user-friendly, and personalized. The Storage API remembers user choices, the Notification API improves feedback, and the Third-Party API connects my site to social media..</p>
-</article>
 
-</article>
+      <article>
+        <h2>Week 3 – JavaScript & DOM Manipulation</h2>
+        <p><strong>1. Which DOM selection methods did you use, and why?</strong><br>
+        I chose to use querySelector() for class-based selections like .hero, as it is more flexible, while unique elements like the nav placeholder used getElementById() because of speed.
+        I also chose some journal entries for collapsible behavior via querySelectorAll().</p>
+        
+        <p><strong>2. What was the most challenging part about linking JavaScript with your HTML?</strong><br>
+        The most difficult part about linking your javascript with html was to ensure JavaScript ran after the DOM loaded, to avoid null issues.Was able to resolve an issue using DOMContentLoaded and debugging ID/class mismatches in DevTools.</p>
+        
+        <p><strong>3. How did you test and debug your JavaScript code?</strong><br>
+        Using DOMContentLoaded and debugging ID/Class mismatches in DevTools, I fixed the issue. I tried using Chrome Console for error messages and console.log() and Live Server for instant reloads. I looked into DOM changes in Elements tab and used DevTools breakpoints for debugging.</p>
+      </article>
 
+      <article>
+        <h2>Week 4 Introduction to API</h2>
+        <p><strong>1. Which APIs did you use, and why?</strong><br> 
+          I utilized the Local Storage API to keep track of theme preferences, the Notification API to notify users when they save a journal entry, and the Facebook API to share my page. I picked these tools because they really enhance the user experience, making my website feel more interactive and personal.</p>
+        
+        <p><strong>2. How did you integrate each API with the DOM?</strong><br> 
+          I used JavaScript event listeners (addEventListener) to handle button clicks and used DOM methods like getElementById to select elements. The APIs were called in response to these user actions, dynamically changing the page content and behavior. </p>
+        
+        <p><strong>3. What challenges did you face?</strong><br>
+          The toughest challenge I encountered was figuring out how to store data so it would stick around and making sure it loaded properly after a refresh. Testing the Notification API also required allowing permissions in the browser.</p>
+        
+        <p><strong>4. How do these APIs improve your PWA? </strong><br>
+          They make my site more interactive, user-friendly, and personalized. The Storage API remembers user choices, the Notification API improves feedback, and the Third-Party API connects my site to social media.</p>
+      </article>
 
+      <article>
+        <h2>Week 5 - Python and JSON Backend Data</h2>
+        <p><strong>1. How is storing data in a JSON file different from using browser storage?</strong><br> 
+          Storage in a JSON file differs from browser storage in that JSON files are permanent, physical files created in and saved to your project folder that can be version-controlled and shared across systems whereas browser storage like localStorage is temporary, bound only to that particular browser, and gets wiped out whenever users clear their browsing data or change devices.</p>
+        
+        <p><strong>2. How did you use Python to create or update your JSON file?</strong><br> 
+           I created and updated the JSON file with Python by writing a script that reads existing entries from reflections.json, prompts the user to input a new reflection, then appends this entry with a timestamp, word count, and author details before saving the updated list back to the file in JSON format. </p>
+        
+        <p><strong>3. What does your PWA show locally, and what will users see on GitHub? Are they the same? Why or why not?</strong><br>
+          Locally, my PWA shows dynamic journal entries loaded in real time from the JSON file with full interactivity. On GitHub Pages, the users would only see a static snapshot of the JSON file from the last commit. They are different because GitHub Pages serves static content exclusively and does not run Python scripts or update files dynamically like a local server does.</p>
+        
+        <p><strong>4. What extra feature did you add to your PWA using the JSON file, and why?</strong> </strong><br>
+          The extra feature I added is a download button that enables users to export reflections as a JSON file, allowing for data portability and backup capability so users can save their journal entries locally or transfer between devices.</p>p>
+        </article>
+      <!-- Week 5 will appear automatically from JSON once you add it with Python -->
     </section>
   </main>
 
   <footer>
     <p>Abhinas Mahaseth</p>
   </footer>
+
+  <!-- Your existing scripts -->
   <script src="js/script.js"></script>
-<script src="js/storage.js"></script>
-<script src="js/browser.js"></script>
-<script src="js/thirdparty.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/browser.js"></script>
+  <script src="js/thirdparty.js"></script>
+
+  <!-- NEW: JSON Loader Script (Lab 5 requirement) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const container = document.getElementById("json-entries");
+      const counter = document.getElementById("entry-counter");
+
+      // Load JSON entries from backend
+      fetch("backend/reflections.json")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(entries => {
+          if (!entries || entries.length === 0) {
+            container.innerHTML = "<p style='text-align:center; color:#666;'>No reflections yet. Run <code>save_entry.py</code> and push to GitHub!</p>";
+            counter.textContent = "0 reflections";
+            return;
+          }
+
+          counter.textContent = `${entries.length} reflection(s) loaded from JSON`;
+
+          // Show newest first
+          entries.reverse().forEach(entry => {
+            const article = document.createElement("article");
+            article.innerHTML = `
+              <h2>${entry.date || "No date"}</h2>
+              <p>${entry.text.replace(/\n/g, "<br>")}</p>
+              <small style="color:#555;">${entry.words || "Unknown"} words</small>
+              <hr>
+            `;
+            container.appendChild(article);
+          });
+        })
+        .catch(err => {
+          console.error('Error loading JSON:', err);
+          container.innerHTML = "<p style='color:red;'>Could not load reflections.json (normal until you push to GitHub)</p>";
+          counter.textContent = "Error loading JSON";
+        });
+
+      // Download button (Extra Feature)
+      document.getElementById("download-json").addEventListener("click", () => {
+        fetch("backend/reflections.json")
+          .then(r => {
+            if (!r.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return r.blob();
+          })
+          .then(blob => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "my-learning-reflections.json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          })
+          .catch(err => {
+            console.error('Error downloading JSON:', err);
+            alert('Error downloading file. Make sure reflections.json exists.');
+          });
+      });
+    });
+  </script>
 </body>
 </html>

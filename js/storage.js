@@ -12,4 +12,3 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", theme);
   });
 });
-storage.js
