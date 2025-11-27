@@ -1,50 +1,214 @@
-import json
-import os
-from datetime import datetime
+STYLE.CSS
+/* Base mobile-first design */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
 
-def save_reflection():
-    # File path
-    json_file = "reflections.json"
-    
-    # Load existing entries or create empty list
-    if os.path.exists(json_file):
-        with open(json_file, 'r', encoding='utf-8') as f:
-            try:
-                entries = json.load(f)
-            except json.JSONDecodeError:
-                entries = []
-    else:
-        entries = []
-    
-    # Get user input
-    print("=== Learning Journal Reflection ===")
-    print("Created by: Abhinas Mahaseth")
-    print("Enter your reflection (type 'quit' to exit):")
-    reflection_text = input("> ")
-    
-    if reflection_text.lower() == 'quit':
-        return
-    
-    # Count words
-    word_count = len(reflection_text.split())
-    
-    # Create entry
-    new_entry = {
-        "date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "text": reflection_text,
-        "words": word_count,
-        "author": "Abhinas Mahaseth"
-    }
-    
-    # Add to entries
-    entries.append(new_entry)
-    
-    # Save back to file
-    with open(json_file, 'w', encoding='utf-8') as f:
-        json.dump(entries, f, indent=2, ensure_ascii=False)
-    
-    print(f"✅ Reflection saved by Abhinas Mahaseth! ({word_count} words)")
-    print(f"Total entries: {len(entries)}")
+/* Navbar */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #333;
+  padding: 10px;
+}
 
-if __name__ == "__main__":
-    save_reflection()
+.logo {
+  color: white;
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-links li {
+  margin: 5px 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background-color: #555;
+}
+
+/* Content Sections */
+main {
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+/* Responsive for larger screens */
+@media (min-width: 768px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    margin: 0 10px;
+  }
+
+  .project-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .project-card {
+    width: 40%;
+  }
+}
+#live-date {
+  margin-top: 1rem;
+  font-style: italic;
+}
+#theme-toggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+#theme-toggle:hover {
+  background: #0056b3;
+}
+
+.dark {
+  background: #1e1e1e;
+  color: #f0f0f0;
+}
+.dark a {
+  color: #bb86fc;
+}
+.dark .navbar {
+  background: #333;
+}
+.dark .project-card, .dark article {
+  background: #2d2d2d;
+}
+
+/* Collapsible effect */
+.journal article.collapsed p { 
+  display: none; 
+}
+.journal article h2::after { 
+  content: ' (Click to collapse)'; 
+  font-size: 0.8rem; 
+  color: #666; 
+}
+.journal article.collapsed h2::after { 
+  content: ' (Click to expand)'; 
+  color: #999; 
+}
+
+.add-entry { margin: 2rem 0; }
+#journal-text { width: 100%; padding: 0.5rem; }
+#journal-form button { padding: 0.5rem; background: #28a745; color: #fff; border: none; }
+
+/* Default Theme (Light Mode) - Light Blue Background */
+body {
+  background-color: #add8e6;  /* Light blue */
+  color: #333;               /* Dark text for readability */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #1e1e1e;  /* Dark gray/black */
+  color: #f0f0f0;             /* Light text */
+}
+
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+body.dark-mode header {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode nav ul li a {
+    color: #ffffff;
+}
+
+body.dark-mode footer {
+    background-color: #2d2d2d;
+    color: #cccccc;
+}
+
+body.dark-mode main {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .hero h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .hero p {
+    color: #cccccc;
+}
+
+body.dark-mode .date-display {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark-mode button {
+    background-color: #4a4a4a;
+    color: white;
+    border: 1px solid #666;
+}
