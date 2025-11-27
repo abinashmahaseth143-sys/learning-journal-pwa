@@ -1,3 +1,4 @@
+STYLE.CSS
 /* Base mobile-first design */
 body {
   font-family: Arial, sans-serif;
@@ -170,4 +171,44 @@ body.dark {
 }
 
 
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
 
+body.dark-mode header {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode nav ul li a {
+    color: #ffffff;
+}
+
+body.dark-mode footer {
+    background-color: #2d2d2d;
+    color: #cccccc;
+}
+
+body.dark-mode main {
+    background-color: #2d2d2d;
+}
+
+body.dark-mode .hero h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .hero p {
+    color: #cccccc;
+}
+
+body.dark-mode .date-display {
+    background-color: #3d3d3d;
+    color: #ffffff;
+}
+
+body.dark-mode button {
+    background-color: #4a4a4a;
+    color: white;
+    border: 1px solid #666;
+}
